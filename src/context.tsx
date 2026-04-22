@@ -47,7 +47,7 @@ export const AuthzProvider: React.FC<AuthzProviderProps> = ({
     
     // Batching logic
     const syncQueue = useRef<Record<string, SyncRequest>>({});
-    const syncTimeout = useRef<NodeJS.Timeout | null>(null);
+    const syncTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     const toggleConfigMode = () => {
         setConfigMode(prev => {

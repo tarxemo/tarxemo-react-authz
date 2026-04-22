@@ -1,6 +1,6 @@
 {
   "name": "tarxemo-react-authz",
-  "version": "0.2.2",
+  "version": "0.2.4",
   "description": "A reusable React library for integrating with tarxemo-django-authz",
   "type": "module",
   "main": "dist/index.js",
