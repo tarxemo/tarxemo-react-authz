@@ -66,22 +66,6 @@ export const AuthzUI: React.FC<AuthzUIProps> = ({
                 isAuthorized ? "ring-2 ring-emerald-500/20" : "ring-2 ring-amber-500/20",
                 className
             )}>
-                {/* Status Indicator / Management Trigger */}
-                <div 
-                    className={classNames(
-                        "absolute -top-3 -right-3 z-[100] flex items-center gap-1.5 px-2 py-1 rounded-full shadow-lg border-2 border-white dark:border-gray-900 cursor-pointer hover:scale-105 transition-all text-white font-medium text-[10px]",
-                        isAuthorized ? "bg-emerald-500" : "bg-amber-500"
-                    )}
-                    onClick={(e) => {
-                         e.preventDefault();
-                         e.stopPropagation();
-                         setIsManagerOpen(true);
-                    }}
-                >
-                    {isAuthorized ? <ShieldCheck size={12} /> : <ShieldAlert size={12} />}
-                    <Settings size={10} className="ml-0.5 opacity-80" />
-                </div>
-                
                 {/* Overlay highlight */}
                 <div className={classNames(
                     "absolute inset-0 z-[50] pointer-events-none rounded transition-colors border-2 border-dashed",
@@ -93,6 +77,24 @@ export const AuthzUI: React.FC<AuthzUIProps> = ({
                 <div className="relative z-10">
                     {children}
                 </div>
+
+                {/* Status Indicator / Management Trigger */}
+                <button 
+                    type="button"
+                    className={classNames(
+                        "absolute -top-1.5 -right-1.5 flex items-center gap-1 px-2 py-1 rounded-full shadow-lg border-2 border-white dark:border-gray-900 cursor-pointer hover:scale-110 active:scale-95 transition-all text-white font-bold text-[10px] pointer-events-auto",
+                        isAuthorized ? "bg-emerald-500 shadow-emerald-500/30" : "bg-amber-500 shadow-amber-500/30"
+                    )}
+                    style={{ zIndex: 99999 }}
+                    onClick={(e) => {
+                         e.preventDefault();
+                         e.stopPropagation();
+                         setIsManagerOpen(true);
+                    }}
+                >
+                    {isAuthorized ? <ShieldCheck size={12} /> : <ShieldAlert size={12} />}
+                    <Settings size={10} className="ml-0.5 opacity-90" />
+                </button>
 
                 {isManagerOpen && (
                     <AuthzManagerModal 

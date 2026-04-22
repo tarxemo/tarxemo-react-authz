@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, useRef, useCallback } from 'react';
-import { useMutation } from '@apollo/client';
+import { useMutation } from '@apollo/client/react';
 import { BULK_SYNC_UI_ELEMENTS } from './graphql';
 
 export interface SyncRequest {

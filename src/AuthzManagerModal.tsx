@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { useQuery, useMutation } from '@apollo/client';
+import { useQuery, useMutation } from "@apollo/client/react";
 import { GET_UI_ELEMENT, GET_PERMISSIONS, UPDATE_UI_ELEMENT } from './graphql';
 import { X, Search, Shield, Check, Info, AlertTriangle, Loader2 } from 'lucide-react';
 import classNames from 'classnames';
@@ -29,7 +29,7 @@ export const AuthzManagerModal: React.FC<AuthzManagerModalProps> = ({
     });
 
     const { data: permData, loading: permLoading } = useQuery(GET_PERMISSIONS, {
-        variables: { filters: { search: searchTerm } },
+        variables: { filters: { searchTerm: searchTerm } },
         skip: !isOpen
     });
 
